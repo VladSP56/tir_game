@@ -10,9 +10,16 @@ pygame.display.set_caption("Shooting game")
 icon = pygame.image.load("img/portrait-young-viking-children.jpg")
 pygame.display.set_icon(icon)
 
-target_img = pygame.image.load("img/istockphoto-521936579-612x612.jpg")
-target_width = 80
-target_height = 80
+# Загрузка изображения яблока
+apple_img = pygame.image.load("img/maça 2.jpeg")
+original_width, original_height = apple_img.get_size()
+
+scale_factor = 0.08
+target_width = int(original_width * scale_factor)
+target_height = int(original_height * scale_factor)
+target_img = pygame.transform.scale(apple_img, (target_width, target_height))
+
+
 target_x = random.randint(0, SCREEN_WIDTH - target_width)
 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
 
